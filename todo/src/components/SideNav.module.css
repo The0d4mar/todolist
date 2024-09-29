@@ -1,0 +1,50 @@
+.sidenav{
+    height: 100vh;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sidenav__cont{
+    padding: 10px 0 0 10px;
+    /*background-color: #FCFCF8;*/
+    background-color: #202020;
+    display: flex;
+    gap: 1px;
+    height: 100ch;
+}
+.sidenav__cont_white{
+    background-color: #F7F7F5;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 5px 0 0 5px;
+}
+.sidenav__mainPart{
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+.sidenav__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidenav__headerBtn{
+    padding-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.verticalLine{
+    width: 5px;
+    cursor: col-resize; /* Устанавливаем курсор-стрелки */
+    background-color: grey;
+    height: 100ch;
+    flex-shrink: 0;
+    z-index: 15;
+
+}

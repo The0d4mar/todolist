@@ -1,0 +1,37 @@
+.task_adderWindow{
+    background-color: rgb(243, 239, 229);
+    border-radius: 10px;
+    box-sizing: content-box;
+}
+.task__cont{
+padding: 20px;
+}
+.task__inputs{
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+.task__inputName{
+font-size: 16px;
+background-color: transparent;
+border: none;
+}
+.task__inputName:focus{
+border: none;
+outline: none;
+}
+.task__inputDescribe{
+font-size: 16px;
+background-color: transparent;
+border: none;
+}
+.task__inputDescribe:focus{
+border: none;
+outline: none;
+}
+.task__btns{
+display: flex;
+align-items: center;
+justify-content: end;
+gap: 20px;
+}

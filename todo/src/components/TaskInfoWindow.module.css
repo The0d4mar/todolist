@@ -1,0 +1,84 @@
+
+.taskInfo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.taskInfo__window{
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.taskInfo__cont{
+    padding: 0 20px 0 20px;
+
+}
+.taskInfo__title{
+    margin-bottom: 40px;
+}
+.taskInfo__taskinformation{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.taskInfo__titleInput{
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+}
+.taskInfo__titleInput::placeholder{
+    color: black;
+}
+.taskInfo__titleInput:focus{
+    outline: none;
+}
+.taskInfo__desc{
+    margin-bottom: 20px;
+}
+
+.task__descInput{
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 16px;
+}
+.task__descInput::placeholder{
+    color: black;
+}
+.task__descInput:focus{
+    outline: none;
+}
+.taskInfo__btns1{
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+.taskInfo__close{
+    background-color: transparent;
+    border: none;
+}
+
+.taskInfo__createDate{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.taskInfo__innerCont{
+    display: flex;
+    gap: 20px;
+}
+.verticalLine{
+    background-color: black;
+    width: 1px;
+    height: auto;
+    margin-top: -10px;
+}

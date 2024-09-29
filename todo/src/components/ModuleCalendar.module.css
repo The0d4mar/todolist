@@ -1,0 +1,32 @@
+.moduleCalendar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translate(125%, 10%);
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+
+}
+.moduleCalendar__header{
+    margin-bottom: 20px;
+}
+.moduleCalendar__month{
+    padding: 0 10px;
+}
+.moduleCalendar__weekGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+}
+.moduleCalendar__dateGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.moduleCalendar__date{
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}

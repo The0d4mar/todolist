@@ -1,0 +1,12 @@
+.date__cell{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px;
+    text-align: 'center';
+}
+.date{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}

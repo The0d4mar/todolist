@@ -1,0 +1,42 @@
+.accountModal{
+    width: 200px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+    position: absolute;
+    top: 45px;
+    left: 10px;
+    padding-bottom: 10px;
+}
+.accountModal__cont{
+    padding: 5px 10px 0 5px;
+}
+.accountModal__email{
+    color: #6A6A6A;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.accountModal__nameBlock{
+    display: flex;
+    align-items: center;
+}
+.accountModal__photo{
+    margin-right: 5px;
+}
+
+.accountModal__name{
+    color:#353434;
+    font-size: 14px;
+}
+.accountModal__plan{
+    color: #6A6A6A;
+    font-size: 12px;
+}
+.accountModal__btn{
+    border: none;
+    background-color: transparent;
+}
+.accountModal__btnText{
+    color: #6A6A6A;
+    font-size: 12px;
+}

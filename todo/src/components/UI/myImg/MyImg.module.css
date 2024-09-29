@@ -1,0 +1,6 @@
+.myImg{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+}

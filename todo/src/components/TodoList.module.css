@@ -1,0 +1,145 @@
+.todoMain{
+    background-color: rgb(255, 254, 254);
+    position: relative;
+    width: 100%;
+    z-index: 90;
+}
+.todoMain__cont{
+    padding-left: 100px;
+    padding-right: 40px;
+    padding-top: 55px;
+}
+.todoMain__title{
+    font-size: 32px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 30px;
+}
+.todoMain__calendar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 350px;
+}
+.todoMain__dates{
+    display: block;
+    margin-top: 15px;
+    width: 100%;
+}
+.todoMain__tasksCont{
+    margin-top: 30px;
+}
+
+.task{
+
+}
+
+.task__header{
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.task__tasks{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.task_adderWindow{
+        background-color: rgb(243, 239, 229);
+        border-radius: 10px;
+        box-sizing: content-box;
+}
+.task__cont{
+    padding: 20px;
+}
+.task__inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.task__inputName{
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+}
+.task__inputName:focus{
+    border: none;
+    outline: none;
+}
+.task__inputDescribe{
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+}
+.task__inputDescribe:focus{
+    border: none;
+    outline: none;
+}
+.task__btns{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+}
+.task__text{
+    font-size: 17px;
+    color: black;
+    
+}
+.task__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.task__containerDel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 129, 129, 0.401);
+    position: relative;
+    border-radius: 0 15px 15px 0 ;
+
+}
+.task__containerDel::before{
+    content: '';
+    position: absolute; /* Позволяет позиционировать относительно родителя */
+    top: 50%; /* Центрируем по вертикали */
+    left: 0; /* Начало от левой стороны */
+    right: 0; /* Завершение на правой стороне */
+    height: 1px; /* Высота линии */
+    background-color: black; /* Цвет линии, измените по необходимости */
+    transform: translateY(-50%); /* Сдвигаем на половину высоты линии для центровки */
+
+}
+
+.task__text::first-letter{
+    text-transform: uppercase;
+}
+
+.deleteTaskBtn{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.ReturnTaskBtn{
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    font-size: 16px;
+    z-index: 100;
+}

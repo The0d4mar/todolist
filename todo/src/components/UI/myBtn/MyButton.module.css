@@ -1,0 +1,46 @@
+.myBtn{
+    border: none;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    
+
+}
+.myBtn__text{
+    font-weight: 500;
+    letter-spacing: 0;
+    font-size: 16px;
+    margin-left: 5px;
+    padding: 0;
+    text-align: center;
+}
+
+.myBtn:hover{
+    background-color: #dcdbdb;
+}
+
+.myBtnBlack{
+    border: none;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        background-color: #2C2C2C;
+    }
+}
+
+.myBtn__link{
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0;
+    font-size: 16px;
+    color: black;
+}
