@@ -40,7 +40,6 @@ const AddTaskWindow = ({taskEditor, id, currentDate}) =>{
         setTask({ title: inputName, desc: inputDesc, id: (Number(new Date().getFullYear()) + Number(new Date().getMonth()) + Number(new Date().getDate()) + Number(new Date().getMilliseconds())), date: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}-${new Date().getMilliseconds()} `, finish: 0   });
     }, [inputName, inputDesc]);
     return(
-        <div className={classes.closeWindowBlock}>
             <div className={classes.task_adderWindow}>
             <div className={classes.task__cont}>
                 <div className={classes.task__inputs}>
@@ -57,7 +56,6 @@ const AddTaskWindow = ({taskEditor, id, currentDate}) =>{
                 </div>
             </div>
             </div>
-        </div>
     )
 }
 

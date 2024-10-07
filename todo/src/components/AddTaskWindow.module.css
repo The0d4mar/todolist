@@ -1,23 +1,14 @@
-.closeWindowBlock{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #b7b7b956;
-}
-
 
 .task_adderWindow{
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-sizing: content-box;
-    box-shadow: -10px -10px 30px 0px rgb(255, 255, 255),10px 10px 30px 0px rgb(174, 174, 192, 0.4),inset -10px -10px 10px 0px rgb(174, 174, 192, 0.25),inset 10px 10px 10px -3px rgba(255,255,255);
-    position: absolute;
-    top: 0;
+    position: absolute; /* Измените на absolute */
+    top: 50px; /* Настройте по вашему усмотрению */
     left: 0;
-    min-width: 500px;
-    transform: translate(50%, 100%);
+    right: 0; /* Убедитесь, что окно будет центрировано */
+    margin: 0 20px; /* Центрирование при использовании left и right */
+    z-index: 10; /* Установите высокий z-index */
 
 }
 .task__cont{
