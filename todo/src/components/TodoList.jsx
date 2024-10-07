@@ -4,12 +4,18 @@ import Calendar from './Calendar';
 import TaskPanel from './TaskPanel.jsx';
 
 
-const TodoList = () => {
+const TodoList = ({standartImgWidth, Appearance, userTodo, updateUserData}) => {
     const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
     const [chooseDate, setChooseDate] = useState(`${monthNames[new Date().getMonth()]}, ${new Date().getDate()}`);
     const [keyDate, setKeyDate] = useState(`${new Date().getFullYear()}-${monthNames[new Date().getMonth()]}-${new Date().getDate()}`);
 
-    const[taskObject, setTaskObject] = useState({[keyDate]: [],});
+    const[taskObject, setTaskObject] = useState(userTodo);
+    if(Object.keys(taskObject).indexOf(keyDate) == -1){
+        setTaskObject({
+            ...taskObject,
+            [keyDate]: [],
+        })
+    }
 
     const chooseDateFunc = (date) =>{
         let dateAr = taskObject[date] != undefined ? taskObject[date] : [];
@@ -28,11 +34,10 @@ const TodoList = () => {
             ...taskObject,
             [date]: dateAr,
         })
-        console.log(taskObject)
         let actualMontDate = date.split('-');
         setChooseDate(`${actualMontDate[1]}, ${actualMontDate[2]}`);
         setKeyDate(date);
-        console.log(taskObject)
+        updateUserData({'todo': taskObject});
     }
 
     // Добавление новой задачи
@@ -46,6 +51,7 @@ const TodoList = () => {
                 };
             });
         }
+        updateUserData({'todo': taskObject});
     };
 
 

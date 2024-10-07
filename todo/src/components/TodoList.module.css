@@ -1,5 +1,5 @@
 .todoMain{
-    background-color: rgb(255, 254, 254);
+    background-color: #f0f0f3;
     position: relative;
     width: 100%;
     z-index: 90;
@@ -10,6 +10,8 @@
     padding-top: 55px;
 }
 .todoMain__title{
+    font-family: "Prata", serif;
+    text-transform: capitalize;
     font-size: 32px;
     font-weight: 700;
     color: black;
@@ -43,6 +45,8 @@
     align-items: center;
     gap: 15px;
     justify-content: space-between;
+    font-family: "Prata", serif;
+    text-transform: capitalize;
 }
 
 .task__tasks{
@@ -50,6 +54,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: "Prata", serif;
 }
 
 
@@ -70,6 +75,7 @@
     font-size: 16px;
     background-color: transparent;
     border: none;
+    font-family: "Prata", serif;
 }
 .task__inputName:focus{
     border: none;
@@ -79,6 +85,7 @@
     font-size: 16px;
     background-color: transparent;
     border: none;
+    font-family: "Prata", serif;
 }
 .task__inputDescribe:focus{
     border: none;
@@ -93,6 +100,7 @@
 .task__text{
     font-size: 17px;
     color: black;
+    font-family: "Prata", serif;
     
 }
 .task__container{
@@ -132,6 +140,7 @@
     border-radius: 15px;
     padding: 10px 15px;
     font-size: 16px;
+    font-family: "Prata", serif;
 }
 
 .ReturnTaskBtn{

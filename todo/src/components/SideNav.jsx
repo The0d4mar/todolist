@@ -8,7 +8,7 @@ import MyImg from './UI/myImg/MyImg';
 import classes from './SideNav.module.css';
 import SideNavigation from './SideNavigation';
 
-const SideNav = ({standartImgWidth, Appearance, addToDo}) => {
+const SideNav = ({standartImgWidth, Appearance, addToDo, useracc}) => {
     const [status, setStatus] = useState(0);
     const [sidebarWidth, setSidebarWidth] = useState(284); // Начальная ширина бокового меню
     const [isResizing, setIsResizing] = useState(false);
@@ -22,7 +22,7 @@ const SideNav = ({standartImgWidth, Appearance, addToDo}) => {
     const handleMouseMove = (e) => {
         if (isResizing) {
             const newWidth = e.clientX; // Получаем текущую позицию мыши по оси X
-            if (newWidth >= 235 && newWidth <= 500) { // Ограничиваем минимальную и максимальную ширину
+            if (newWidth >= 237 && newWidth <= 500) { // Ограничиваем минимальную и максимальную ширину
                 setSidebarWidth(newWidth);
             }
         }
@@ -56,11 +56,14 @@ const SideNav = ({standartImgWidth, Appearance, addToDo}) => {
                     <div className={classes.sidenav__header}>
                         <UserAccount
                             ness={standartImgWidth}
-                            appearance={Appearance} />
+                            appearance={Appearance}
+                            user = {useracc}
+                            />
                         <div className={classes.sidenav__headerBtn}>
                             <MyButton
                                 add=''
                                 mainStyle={Appearance}
+                                
                             >
                                 <MyImg
                                     img={sideNavClose}

@@ -12,6 +12,9 @@
 }
 .moduleCalendar__header{
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .moduleCalendar__month{
     padding: 0 10px;

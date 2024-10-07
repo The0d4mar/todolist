@@ -1,0 +1,54 @@
+.login{
+    background-color: rgb(255, 254, 254);
+    position: relative;
+    width: 100%;
+    z-index: 90;
+}
+.login__cont{
+    padding-left: 100px;
+    padding-right: 40px;
+    padding-top: 55px;
+}
+.login__title{
+    font-size: 32px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+.login__inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.login__input{
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: black;
+    border: none;
+    border-bottom: 1px solid black;
+    min-width: 200px;
+
+}
+.login__submitBTN{
+    background-color: transparent;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.login__regist{
+    border: none;
+    background-color: transparent;
+}
+
+.error{
+    font-size: 14px;
+    color: red;
+    font-weight: 500;
+    margin-bottom: -20px;
+}

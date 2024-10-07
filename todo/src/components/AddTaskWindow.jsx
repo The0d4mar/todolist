@@ -40,30 +40,24 @@ const AddTaskWindow = ({taskEditor, id, currentDate}) =>{
         setTask({ title: inputName, desc: inputDesc, id: (Number(new Date().getFullYear()) + Number(new Date().getMonth()) + Number(new Date().getDate()) + Number(new Date().getMilliseconds())), date: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}-${new Date().getMilliseconds()} `, finish: 0   });
     }, [inputName, inputDesc]);
     return(
-        <div className={classes.task_adderWindow}>
-        <div className={classes.task__cont}>
-            <div className={classes.task__inputs}>
-                <input className={classes.task__inputName} type='text' placeholder='Task name' onChange={handleInputChangeName}/>
-                <input className={classes.task__inputDescribe} type='text' placeholder='Task describe' onChange={handleInputChangeDesc}/>
+        <div className={classes.closeWindowBlock}>
+            <div className={classes.task_adderWindow}>
+            <div className={classes.task__cont}>
+                <div className={classes.task__inputs}>
+                    <input className={classes.task__inputName} type='text' placeholder='Task name' onChange={handleInputChangeName}/>
+                    <input className={classes.task__inputDescribe} type='text' placeholder='Task describe' onChange={handleInputChangeDesc}/>
 
+                </div>
             </div>
-         </div>
-         <hr></hr>
-         <div className={classes.task__cont}>
-            <div className={classes.task__btns}>
-                <MyButton
-                add = {'Add'}
-                mainStyle={'white'}
-                onClick={() => taskEditorModal(true)}
-                />
-                  <MyButton
-                add = {'Cancel'}
-                mainStyle={'white'}
-                onClick={() => taskEditorModal(false)} // Отмена
-                />
+            <hr></hr>
+            <div className={classes.task__cont}>
+                <div className={classes.task__btns}>
+                    <button className={classes.modal__add } onClick={() => taskEditorModal(true)} >Add </button>
+                    <button className={classes.modal__cnl} onClick={() => taskEditorModal(false)} >Cancel </button>
+                </div>
+            </div>
             </div>
         </div>
-    </div>
     )
 }
 

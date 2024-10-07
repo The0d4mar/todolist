@@ -5,7 +5,7 @@ import MyImg from '../myImg/MyImg';
 import MyButton from '../myBtn/MyButton';
 import UserModal from '../UserModal/UserModal';
 
-const UserAccount = ({ness, appearance})=>{
+const UserAccount = ({ness, appearance, user})=>{
 
     const accountModal = [];
     let modalFlag = 0;
@@ -30,9 +30,9 @@ const UserAccount = ({ness, appearance})=>{
                     alt={'Person'}
                 />
             </div>
-            <div className={appearance =='black' ? classes.user__name : classes.user__name_white}>
-                Владимир
-            </div>
+            <a href='/login' className={appearance =='black' ? classes.user__name : classes.user__name_white}>
+                {user == null ? 'Войти' : user}
+            </a>
 
             {accountModal[0]}
         </div>
