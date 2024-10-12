@@ -1,10 +1,19 @@
+
 .task_adderWindow{
-    background-color: rgb(243, 239, 229);
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-sizing: content-box;
+    position: absolute; /* Измените на absolute */
+    top: 50px; /* Настройте по вашему усмотрению */
+    left: 0;
+    right: 0; /* Убедитесь, что окно будет центрировано */
+    margin: 0 20px; /* Центрирование при использовании left и right */
+    z-index: 10; /* Установите высокий z-index */
+
 }
 .task__cont{
 padding: 20px;
+
 }
 .task__inputs{
 display: flex;
@@ -15,6 +24,7 @@ gap: 15px;
 font-size: 16px;
 background-color: transparent;
 border: none;
+font-family: "Prata", serif;
 }
 .task__inputName:focus{
 border: none;
@@ -24,6 +34,7 @@ outline: none;
 font-size: 16px;
 background-color: transparent;
 border: none;
+font-family: "Prata", serif;
 }
 .task__inputDescribe:focus{
 border: none;
@@ -32,6 +43,27 @@ outline: none;
 .task__btns{
 display: flex;
 align-items: center;
-justify-content: end;
+justify-content: start;
 gap: 20px;
+font-family: "Prata", serif;
+}
+
+.modal__add{
+    font-family: "Prata", serif;
+    background-color: transparent;
+    padding: 5px 25px;
+    border-radius: 15px;
+}
+.modal__cnl{
+    font-family: "Prata", serif;
+    background-color: transparent;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+.modal__add:active{
+    box-shadow: inset -10px -10px 10px 0px rgba(255,255,255,0.7),inset 10px 10px 10px 0px rgb(174, 174, 192, .2);
+}
+.modal__cnl{
+    box-shadow: inset -10px -10px 10px 0px rgba(255,255,255,0.7),inset 10px 10px 10px 0px rgb(174, 174, 192, .2);
 }

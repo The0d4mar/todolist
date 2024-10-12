@@ -1,5 +1,5 @@
 .todoMain{
-    background-color: rgb(255, 254, 254);
+    background-color: #f0f0f3;
     position: relative;
     width: 100%;
     z-index: 90;
@@ -10,6 +10,8 @@
     padding-top: 55px;
 }
 .todoMain__title{
+    font-family: "Prata", serif;
+    text-transform: capitalize;
     font-size: 32px;
     font-weight: 700;
     color: black;
@@ -43,6 +45,8 @@
     align-items: center;
     gap: 15px;
     justify-content: space-between;
+    font-family: "Prata", serif;
+    text-transform: capitalize;
 }
 
 .task__tasks{
@@ -50,6 +54,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: "Prata", serif;
 }
 
 
@@ -70,6 +75,7 @@
     font-size: 16px;
     background-color: transparent;
     border: none;
+    font-family: "Prata", serif;
 }
 .task__inputName:focus{
     border: none;
@@ -79,6 +85,7 @@
     font-size: 16px;
     background-color: transparent;
     border: none;
+    font-family: "Prata", serif;
 }
 .task__inputDescribe:focus{
     border: none;
@@ -93,6 +100,7 @@
 .task__text{
     font-size: 17px;
     color: black;
+    font-family: "Prata", serif;
     
 }
 .task__container{
@@ -104,22 +112,50 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 129, 129, 0.401);
     position: relative;
     border-radius: 0 15px 15px 0 ;
 
 }
 .task__containerDel::before{
+    border-radius: 0 15px 15px 0 ;
     content: '';
-    position: absolute; /* Позволяет позиционировать относительно родителя */
-    top: 50%; /* Центрируем по вертикали */
-    left: 0; /* Начало от левой стороны */
-    right: 0; /* Завершение на правой стороне */
-    height: 1px; /* Высота линии */
-    background-color: black; /* Цвет линии, измените по необходимости */
-    transform: translateY(-50%); /* Сдвигаем на половину высоты линии для центровки */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(255, 129, 129, 0.401);
+    transform: translate(0, -50%);
+    animation: deleteAnimation 0.7s forwards;
 
 }
+
+.task__containerDel::after{
+    border-radius: 0 15px 15px 0 ;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    width: 0;
+    background-color: rgba(0, 0, 0, 0.401);
+    transform: translate(0, -50%);
+    animation: deleteAnimation 0.7s forwards;
+
+}
+
+@keyframes deleteAnimation {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+    
+}
+
 
 .task__text::first-letter{
     text-transform: uppercase;
@@ -132,14 +168,63 @@
     border-radius: 15px;
     padding: 10px 15px;
     font-size: 16px;
+    font-family: "Prata", serif;
 }
 
 .ReturnTaskBtn{
-    background-color: green;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 15px;
     padding: 10px 15px;
     font-size: 16px;
     z-index: 100;
+    animation: changebtnColor 0.7s forwards;
+}
+@keyframes changebtnColor {
+    0%{
+        background-color: red;
+    }
+    100%{
+        background-color: green;
+    }
+}
+
+
+
+
+.task__span{
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    font-family: "Prata", serif;
+    font-size: 16px;
+    font-weight: 500;
+    gap: 10px;
+    text-transform: capitalize;
+    color: black;
+}
+
+.task__addTaskBtn{
+    padding: 5px 20px;
+    background-color: transparent;
+    border-radius: 15px;
+    border: 1px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1);
+    width: 150px;
+    height: 40px;
+    transition: transform 0.6s ease, width 0.6s ease, height 0.6s ease;
+    position: relative;
+
+
+}
+
+.hovered {
+    transform: scale(1.1);
+    position: relative; /* Чтобы всплывающее окно отображалось над кнопкой */
+    width: 600px;
+    height: 300px;
+    margin-top: 20px;
 }

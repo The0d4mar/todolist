@@ -2,6 +2,39 @@
     height: 100vh;
     overflow: hidden;
     flex-shrink: 0;
+    background-color: #f0f0f3;
+    position: relative;
+}
+.sidenav__close{
+    width: 284px;
+    animation: changewidth 0.5s forwards;
+}
+@keyframes changewidth {
+    0%{
+        width: 284px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+
+.sidenavOpen{
+    height: 100vh;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #f0f0f3;
+    position: relative;
+    width: 100px;
+    animation: changewidthBack 0.5s ease;
+}
+
+@keyframes changewidthBack {
+    0%{
+        width: 100px;
+    }
+    100%{
+        width: auto;
+    }
 }
 
 .sidenav__cont{
@@ -10,13 +43,15 @@
     background-color: #202020;
     display: flex;
     gap: 1px;
-    height: 100ch;
+    height: 200ch;
+    transition: width 0.3s ease;
 }
 .sidenav__cont_white{
-    background-color: #F7F7F5;
+    background-color: #f1eeee;
     display: inline-flex;
     justify-content: space-between;
     padding: 5px 0 0 5px;
+    height: 200ch;
 }
 .sidenav__mainPart{
     padding-right: 10px;
@@ -34,7 +69,13 @@
     padding-left: 80px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
+    gap:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    transform: translate(80px, 20px);
 }
 
 
@@ -43,8 +84,151 @@
     width: 5px;
     cursor: col-resize; /* Устанавливаем курсор-стрелки */
     background-color: grey;
-    height: 100ch;
+    height: 200ch;
     flex-shrink: 0;
     z-index: 15;
+    margin-top: -10px;
 
+
+}
+
+.toggleButtonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Все высота родительского контейнера */
+    background: transparent; /* Может потребоваться изменить для лучшего визуального восприятия */
+    padding-left: 80px;
+}
+.toggleButtonContainerCLose{
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: auto;
+    height: 100%;
+
+}
+
+.rotated {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.open {
+    width: 284px; /* Ширина, когда открыто */
+}
+
+.closeSideNav{
+    animation: hideSideNav 0.7s forwards;
+    transform: translateX(0);
+}
+
+@keyframes hideSideNav {
+    0%{
+        transform: translateX(0);
+        width: 284px;
+    }
+
+    50%{
+        width: 0;
+    }
+
+    100%{
+        transform: translateX(-284px);
+        width: 0;
+    }
+}
+
+.OpenSideNavBtn{
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.OpenSideNavBtn:hover{
+    box-shadow: 28px 28px 50px 0px rgba(9, 36, 79, 0.26),inset -23px -23px 45px -3px rgb(255, 255, 255);
+    background-color: #c8c8c8;
+}
+.closeSideNavBtnModule{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    transform: translate(80px, 20px);
+    animation: translateDiv 0.7s forwards;
+}
+
+@keyframes translateDiv {
+    0%{
+        transform: translate(80px, 20px);
+    }
+    100%{
+        transform: translate(20px, 30px);
+    }
+    
+}
+
+.returnblock{
+    padding-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    transform: translate(20px, 30px);
+    animation: translateDivBack 0.7s forwards;
+}
+
+@keyframes translateDivBack {
+    0%{
+        transform: translate(20px, 30px);
+        transform: translate(80px, 20px);
+    }
+    100%{
+        transform: translate(80px, 20px);
+    }
+    
+}
+
+.closeSideNavBtn{
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    transition: 0.5s;
+    transform: translateX(100%) rotate(0);
+    animation: transformation 0.7s forwards;
+    position: absolute;
+    top: 0;
+}
+
+.closeSideNavBtn:hover{
+    box-shadow: 28px 28px 50px 0px rgba(9, 36, 79, 0.26),inset -23px -23px 45px -3px rgb(255, 255, 255);
+    background-color: #c8c8c8;
+}
+
+@keyframes transformation {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
 }

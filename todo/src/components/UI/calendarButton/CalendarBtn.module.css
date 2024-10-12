@@ -5,8 +5,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-transform: uppercase;
     border-radius: 5px;
+    font-family: "Prata", serif;
+    transition: 0.5s;
 }
 .btn:hover{
     background-color: rgba(215, 211, 211, 0.697) !important;

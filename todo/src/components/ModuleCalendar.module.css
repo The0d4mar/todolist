@@ -12,6 +12,10 @@
 }
 .moduleCalendar__header{
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Prata", serif;
 }
 .moduleCalendar__month{
     padding: 0 10px;
@@ -20,13 +24,16 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     font-weight: bold;
+    font-family: "Prata", serif;
 }
 .moduleCalendar__dateGrid{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    font-family: "Prata", serif;
 }
 .moduleCalendar__date{
     padding: 10px;
     border: 1px solid #ccc;
     cursor: pointer;
+    font-family: "Prata", serif;
 }

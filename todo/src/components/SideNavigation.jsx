@@ -27,6 +27,7 @@ const SideNavigation = ({standartImgWidth, Appearance, addToDo}) =>{
             children={<MyImg img = {notesIcon} width={standartImgWidth} height={standartImgWidth} alt = {'Main page'}/>}
             add = 'My notes'
             mainStyle = {Appearance}
+            link = '/notes'
             />
             <MyButton
             children={<MyImg img = {filterIcon} width={standartImgWidth} height={standartImgWidth} alt = {'Main page'}/>}

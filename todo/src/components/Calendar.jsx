@@ -37,10 +37,13 @@ const Calendar = ({chooseDateFunc}) =>{
     const showModuleCalendar = (status) =>{
         setModuleCalendarStatus(1)
     }
+    const closeModalCalendar = () =>{
+        setModuleCalendarStatus(0)
+    }
 
     const selectModuleKey = (key) =>{
         chooseDateFunc(key);
-        setModuleCalendarStatus(0)
+        closeModalCalendar();
     }
 
     useEffect(() => {
@@ -81,7 +84,7 @@ const Calendar = ({chooseDateFunc}) =>{
             <div className={classes.todoMain__dates}>
                 <Dates date={currentDate} currentWeek={currentWeek} chooseDate = {chooseDat} />
             </div>
-            {moduleCalendarStatus == 1 ? <ModuleCalendar selectDates = {selectModuleKey}/> : null}
+            {moduleCalendarStatus == 1 ? <ModuleCalendar selectDates = {selectModuleKey} closeModalCalendar = {closeModalCalendar}/> : null}
         </div>
     )
 

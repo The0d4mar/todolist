@@ -41,22 +41,7 @@
 .taskInfo__titleInput:focus{
     outline: none;
 }
-.taskInfo__desc{
-    margin-bottom: 20px;
-}
 
-.task__descInput{
-    border: none;
-    outline: none;
-    color: black;
-    font-size: 16px;
-}
-.task__descInput::placeholder{
-    color: black;
-}
-.task__descInput:focus{
-    outline: none;
-}
 .taskInfo__btns1{
     display: flex;
     justify-content: end;
@@ -81,4 +66,44 @@
     width: 1px;
     height: auto;
     margin-top: -10px;
+}
+
+.taskInfo__desc{
+    margin-bottom: 20px;
+    display: flex;
+    position: relative;
+
+}
+
+.task__descInput{
+    border: none;
+    outline: none;
+    color: black;
+    font-family: "Prata", serif;
+    font-size: 16px;
+    opacity: 1;
+    caret-color: black;
+    min-width: 300px;
+    min-height: 100px;
+    padding: 0;
+    background-color: transparent;
+    text-align: start;
+    
+    
+}
+.task__descInput::placeholder{
+    color: black;
+}
+.task__descInput:focus{
+    outline: none;
+}
+
+.task__descBlock{
+    position: absolute;
+    color: black;
+    font-family: "Prata", serif;
+    font-size: 16px;
+    min-width: 300px;
+    min-height: 100px;
+    text-align: start;
 }

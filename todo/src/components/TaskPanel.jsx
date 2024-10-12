@@ -10,6 +10,7 @@ import TaskInfoWindow from './TaskInfoWindow.jsx';
 const TaskPanel = ({ setNewTask, taskArray, chooseDate }) => {
     const [tasks, setTasks] = useState(taskArray);
     const [chooseTask, setChooseTask] = useState();
+    const [isHovered, setIsHovered] = useState(false); // Состояние для наведения
     
     useEffect(() => {
         setTasks(taskArray);
@@ -46,15 +47,13 @@ const TaskPanel = ({ setNewTask, taskArray, chooseDate }) => {
         setTaskInfo(0); // Закрываем окно информации о задаче
     };
 
-    const todoModalFunc = (num) => {
-        setTodoModal(num);
-    };
 
     const LocalSet = (newTask) => {
         if (newTask && newTask.title) {
             setNewTask([newTask]); // Передаем новую задачу как массив
         }
         setTodoModal(0);
+        setIsHovered(false);
     };
     const deleteTask = (deltask, oldtask) => {
         console.log(deltask)
@@ -92,17 +91,20 @@ const TaskPanel = ({ setNewTask, taskArray, chooseDate }) => {
                 ))}
             </div>
             <div className={classes.task__addTask}>
-                <MyButton
-                    mainStyle="white"
-                    add="New Task"
-                    onClick={() => todoModalFunc(1)}
+                <button
+                    className={`${classes.task__addTaskBtn} ${isHovered ? classes.hovered : ''}`}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
                 >
-                    <MyImg img={NewTaskImg} />
-                </MyButton>
+                    {isHovered ? (
+                        <AddTaskWindow taskEditor={LocalSet}  currentDate={currentDate} />
+                    ) : (
+                        <span className={classes.task__span}>
+                            <MyImg img={NewTaskImg} /> New Task
+                        </span>
+                    )}
+                </button>
             </div>
-            {todoModal === 1 && (
-                <AddTaskWindow taskEditor={LocalSet} currentDate={currentDate} />
-            )}
             {taskInfo === 1 && (
                 <TaskInfoWindow task={chooseTask} closeInfo={closeTaskInfo} />
             )}

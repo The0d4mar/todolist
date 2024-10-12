@@ -5,7 +5,7 @@ import classes from './ModuleCalendar.module.css'
 
 
 
-const ModuleCalendar = ({selectDates}) => {
+const ModuleCalendar = ({selectDates, closeModalCalendar}) => {
     const [date, setDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(null);
 
@@ -56,6 +56,10 @@ const ModuleCalendar = ({selectDates}) => {
         selectDates(formattedDate);
       };
 
+      const localCloseFunc = () =>{
+        closeModalCalendar();
+      }
+
   return (
     <div className={classes.moduleCalendar}>
       <ModuleCalendarHeader
@@ -63,6 +67,7 @@ const ModuleCalendar = ({selectDates}) => {
         year={date.getFullYear()}
         onPrevMonth={() => changeMonth(-1)}
         onNextMonth={() => changeMonth(1)}
+        closeModalCalendar = {() => localCloseFunc()}
       />
       <ModuleCalendarGrid
         dates={generateDates()}
