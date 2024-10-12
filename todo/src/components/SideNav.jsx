@@ -8,10 +8,27 @@ import MyImg from './UI/myImg/MyImg';
 import classes from './SideNav.module.css';
 import SideNavigation from './SideNavigation';
 
-const SideNav = ({standartImgWidth, Appearance, addToDo, useracc}) => {
+const SideNav = ({standartImgWidth, Appearance, addToDo, useracc, onLogout, useradr}) => {
     const [status, setStatus] = useState(0);
     const [sidebarWidth, setSidebarWidth] = useState(284); // Начальная ширина бокового меню
     const [isResizing, setIsResizing] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenFlag, setIsOpenflag] = useState(0);
+    if(!isOpen && sidebarWidth < 284){
+        setSidebarWidth(284);
+    }
+
+    const manipulSidenav = () =>{
+        setIsOpen(!isOpen);
+        if(isOpen == true && isOpenFlag == 0){
+            setIsOpenflag(1);
+            
+        }
+        else if(isOpen == false && isOpenFlag == 1){
+            setIsOpenflag(0);
+        }
+
+    }
 
     // Начинаем процесс изменения ширины
     const handleMouseDown = () => {
@@ -50,41 +67,17 @@ const SideNav = ({standartImgWidth, Appearance, addToDo, useracc}) => {
     }, [isResizing]);
 
     return (
-        <div className={classes.sidenav} style={{ width: `${sidebarWidth}px` }}>
-            <div className={Appearance === "black" ? classes.sidenav__cont : classes.sidenav__cont_white} style={{ width: `${sidebarWidth - 5}px` }}>
+        <div className={`${isOpenFlag == 0 ? classes.sidenav: classes.sidenavOpen} ${!isOpen ? '' : classes.sidenav__close}`} style={{ width: `${sidebarWidth}px` }}>
+            <div className={`${Appearance === "black" ? classes.sidenav__cont : classes.sidenav__cont_white} ${!isOpen ? '' : classes.closeSideNav}`} style={{ width: `${sidebarWidth - 5}px` }}>
                 <div className={classes.sidenav__mainPart}>
                     <div className={classes.sidenav__header}>
                         <UserAccount
                             ness={standartImgWidth}
                             appearance={Appearance}
                             user = {useracc}
+                            onLogoutlocal = {onLogout}
+                            mail = {useradr}
                             />
-                        <div className={classes.sidenav__headerBtn}>
-                            <MyButton
-                                add=''
-                                mainStyle={Appearance}
-                                
-                            >
-                                <MyImg
-                                    img={sideNavClose}
-                                    width={standartImgWidth}
-                                    height={standartImgWidth}
-                                    alt={'Close SideNav'}
-                                />
-                            </MyButton>
-                            <MyButton
-                                add=''
-                                mainStyle={Appearance}
-                            >
-                                <MyImg
-                                    img={newNoteImg}
-                                    width={standartImgWidth}
-                                    height={standartImgWidth}
-                                    alt={'Create new note'}
-                                    mainStyle={Appearance}
-                                />
-                            </MyButton>
-                        </div>
                     </div>
                     <SideNavigation
                         standartImgWidth={standartImgWidth}
@@ -94,6 +87,24 @@ const SideNav = ({standartImgWidth, Appearance, addToDo, useracc}) => {
                 </div>
                 {/* Добавляем линию-разделитель для изменения ширины */}
                 <div className={classes.verticalLine} onMouseDown={handleMouseDown}></div>
+            </div>
+
+            <div className={`${!isOpen ? isOpenFlag == 1 ? classes.returnblock :classes.sidenav__headerBtn : classes.closeSideNavBtnModule} ${isOpenFlag == 1 ? classes.returnblock : ''}`} style={{ height: `${isOpen ? 35 : 0}px` }}>
+                <MyButton
+                    add=''
+                    mainStyle={Appearance}
+                    onClick = {manipulSidenav}
+                    className = {`${!isOpen ? classes.OpenSideNavBtn : classes.closeSideNavBtn}`}
+                    
+                >
+                    <MyImg
+                        img={sideNavClose}
+                        width={standartImgWidth}
+                        height={standartImgWidth}
+                        alt={'Close SideNav'}
+                    />
+                </MyButton>
+                            
             </div>
         </div>
     );

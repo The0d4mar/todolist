@@ -1,0 +1,30 @@
+.mainpage{
+    background-color: #f0f0f3;
+    position: relative;
+    width: 100%;
+    z-index: 90;
+}
+.mainpage__cont{
+    padding-left: 100px;
+    padding-right: 40px;
+    padding-top: 55px;
+}
+
+.mainpage__title{
+    font-family: "Prata", serif;
+    text-transform: none;
+    font-size: 32px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.mainpage__desc{
+    font-family: "Prata", serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    text-wrap: wrap;
+    text-align: center;
+    text-transform: none;
+}

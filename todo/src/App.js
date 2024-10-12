@@ -17,18 +17,16 @@ function App() {
   const [status, setStatus] = useState(0);
 
   const [users, setUsers] = useState([
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' }
+    { username: 'user1', password: '1', login: 'user1@gmail.com', },
+    { username: 'user2', password: '2',login: 'user2@gmail.com', }
   ]);
+  const [chooseMial, setchooseMail] = useState('')
 
-  const addUsers = (newusername, newpassword) => {
-    setUsers([...users, { newusername, newpassword }]);
+  const addUsers = (newusername, newpassword, newlogin) => {
+    setUsers([...users, { newusername, newpassword, newlogin }]);
   }
 
-  const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem('user');
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
+  const [user, setUser] = useState({ username: '', login: '' });
 
 
   const [userData, setUserData] = useState({'todo': {}, 'notes': {}, 'settings' : {}});
@@ -41,11 +39,10 @@ function App() {
     console.log(userData);
   };
 
-  const handleLogin = (username) => {
-    const newUser = { username };
-    setUser(newUser);
-    localStorage.setItem('user', JSON.stringify(newUser)); // Сохраняем пользователя в локальном хранилище
+  const handleLogin = (userData) => {
+    setUser({ username: userData.username, login: userData.login });
 };
+
   
   const handleLogout = () => {
     setUser(null);
@@ -60,7 +57,6 @@ function App() {
 
   useEffect(() => {
     if (user) {
-        const savedData = JSON.parse(localStorage.getItem(user.username) || '{}');
         setUserData(savedData);
     }
   }, [user]);
@@ -75,7 +71,9 @@ function App() {
         standartImgWidth = {standartImgWidth}
         Appearance = {appearance}
         addToDo = {addToDoPage}
-        useracc = {user ? Object.values(user)[0] : null}
+        useracc = {user ? user.username : null}
+        useradr = {user ? user.login : null}
+        onLogout = {handleLogout}
         />
         <Routes>
           <Route path='/homePage' element = {user ? <MainPage/> : <Navigate to="/login" />}/>
@@ -101,7 +99,7 @@ function App() {
             addUsers = {addUsers}
           />}/>
           <Route path="*" element={<Navigate to="/homePage" replace />}/>
-          <Route path="/" element={<Navigate to="/login" replace />}/>
+          <Route path="/" element={user ? <Navigate to="/homePage" replace /> : <Navigate to="/login" replace />}/>
 
 
       </Routes>
