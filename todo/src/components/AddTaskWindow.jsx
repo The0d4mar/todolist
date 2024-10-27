@@ -52,7 +52,6 @@ const AddTaskWindow = ({taskEditor, id, currentDate}) =>{
             <div className={classes.task__cont}>
                 <div className={classes.task__btns}>
                     <button className={classes.modal__add } onClick={() => taskEditorModal(true)} >Add </button>
-                    <button className={classes.modal__cnl} onClick={() => taskEditorModal(false)} >Cancel </button>
                 </div>
             </div>
             </div>

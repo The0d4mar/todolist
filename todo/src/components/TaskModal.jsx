@@ -29,7 +29,7 @@ const TaskModal = ({ task, onClose, updateTask, deleteTask, sectionName }) => {
           className={classes.taskModal__title}
         />
         <textarea 
-                    className="descriptionInput" 
+                    className={classes.descriptionInput} 
                     rows="4" 
                     value={description} 
                     onChange={handleDescriptionChange} 

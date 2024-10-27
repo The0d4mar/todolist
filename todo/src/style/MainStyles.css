@@ -1,3 +1,19 @@
+:root{
+    --mainFont: "Prata", serif;
+    --h1: 32px;
+    --h2: 24px;
+    --h3: 20px;
+    --maintext: 16px;
+    --bkColor: #F0F0F3;
+    --sideNavColor: #F1EEEE;
+    --textColor: black;
+
+    --standartPaddint: 55px 40px 0 100px;
+}
+
+
+
+
 .prata-regular {
     font-family: "Prata", serif;
     font-style: normal;

@@ -16,18 +16,7 @@ function App() {
 
   const [status, setStatus] = useState(0);
 
-  const [users, setUsers] = useState([
-    { username: 'user1', password: '1', login: 'user1@gmail.com', },
-    { username: 'user2', password: '2',login: 'user2@gmail.com', }
-  ]);
-  const [chooseMial, setchooseMail] = useState('')
-
-  const addUsers = (newusername, newpassword, newlogin) => {
-    setUsers([...users, { newusername, newpassword, newlogin }]);
-  }
-
-  const [user, setUser] = useState({ username: '', login: '' });
-
+  const [user, setUser] = useState([]);
 
   const [userData, setUserData] = useState({'todo': {}, 'notes': {}, 'settings' : {}});
 
@@ -39,9 +28,18 @@ function App() {
     console.log(userData);
   };
 
-  const handleLogin = (userData) => {
-    setUser({ username: userData.username, login: userData.login });
-};
+  const handleLogin = (newUser) => {
+    setUser(newUser);
+    localStorage.setItem('user', JSON.stringify(newUser)); // Сохраняем пользователя
+  };
+
+  useEffect(() => {
+    // Проверяем локальное хранилище при загрузке приложения
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
 
   
   const handleLogout = () => {
@@ -55,11 +53,6 @@ function App() {
     setStatus(statusParam);
   }
 
-  useEffect(() => {
-    if (user) {
-        setUserData(savedData);
-    }
-  }, [user]);
 
 
 
@@ -71,8 +64,8 @@ function App() {
         standartImgWidth = {standartImgWidth}
         Appearance = {appearance}
         addToDo = {addToDoPage}
-        useracc = {user ? user.username : null}
-        useradr = {user ? user.login : null}
+        useracc = {user ? user[0] : null}
+        useradr = {user ? user[1] : null}
         onLogout = {handleLogout}
         />
         <Routes>
@@ -80,26 +73,22 @@ function App() {
           <Route path='/todoList' element = { user ? <TodoList 
                 standartImgWidth = {standartImgWidth}
                 Appearance = {appearance}
-                userTodo = {userData.todo}
-                updateUserData={updateUserData}
+                userTodo = {user[0]}
                 />
                 : <Navigate to="/login" />
           }/>
           <Route path='/notes' element = { user ?  <Notes 
                 standartImgWidth = {standartImgWidth}
                 Appearance = {appearance}
-                usernotes = {userData.notes}
+                userName = {user[0]}
                 updateUserData={updateUserData}
                 />
                 : <Navigate to="/login" />
           }/>
           <Route path='/login' element = {<Login
             onLogin = {handleLogin}
-            users = {users}
-            addUsers = {addUsers}
           />}/>
           <Route path="*" element={<Navigate to="/homePage" replace />}/>
-          <Route path="/" element={user ? <Navigate to="/homePage" replace /> : <Navigate to="/login" replace />}/>
 
 
       </Routes>

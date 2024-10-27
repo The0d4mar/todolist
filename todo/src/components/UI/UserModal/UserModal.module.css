@@ -1,5 +1,5 @@
 .accountModal{
-    width: 200px;
+    min-width: 200px;
     background-color: #F0f0f3;
     border: 1px solid black;
     border-radius: 8px;

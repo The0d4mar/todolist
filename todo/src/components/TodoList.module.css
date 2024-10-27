@@ -1,20 +1,21 @@
+@import '../style/MainStyles.css';
+
+
 .todoMain{
-    background-color: #f0f0f3;
+    background-color: var(--bkColor);
     position: relative;
     width: 100%;
     z-index: 90;
 }
 .todoMain__cont{
-    padding-left: 100px;
-    padding-right: 40px;
-    padding-top: 55px;
+    padding: var(--standartPaddint) ;
 }
 .todoMain__title{
-    font-family: "Prata", serif;
+    font-family: var(--mainFont);
     text-transform: capitalize;
-    font-size: 32px;
+    font-size: var(--h1);
     font-weight: 700;
-    color: black;
+    color: var(--textColor);
     margin-bottom: 30px;
 }
 .todoMain__calendar{
@@ -38,14 +39,14 @@
 }
 
 .task__header{
-    font-size: 18px;
+    font-size: var(--h2);
     font-weight: 400;
-    color: black;
+    color: var(--textColor);
     display: flex;
     align-items: center;
     gap: 15px;
     justify-content: space-between;
-    font-family: "Prata", serif;
+    font-family: var(--mainFont);
     text-transform: capitalize;
 }
 
@@ -54,7 +55,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    font-family: "Prata", serif;
+    font-family: var(--mainFont);
 }
 
 
@@ -72,20 +73,20 @@
     gap: 15px;
 }
 .task__inputName{
-    font-size: 16px;
+    font-size: var(--maintext);
     background-color: transparent;
     border: none;
-    font-family: "Prata", serif;
+    font-family: var(--mainFont);
 }
 .task__inputName:focus{
     border: none;
     outline: none;
 }
 .task__inputDescribe{
-    font-size: 16px;
+    font-size: var(--maintext);
     background-color: transparent;
     border: none;
-    font-family: "Prata", serif;
+    font-family: var(--mainFont);
 }
 .task__inputDescribe:focus{
     border: none;
@@ -98,9 +99,9 @@
     gap: 20px;
 }
 .task__text{
-    font-size: 17px;
-    color: black;
-    font-family: "Prata", serif;
+    font-size: var(--maintext);
+    color: var(--textColor);
+    font-family: var(--mainFont);
     
 }
 .task__container{
@@ -162,32 +163,61 @@
 }
 
 .deleteTaskBtn{
-    background-color: red;
-    color: white;
     border: none;
-    border-radius: 15px;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-family: "Prata", serif;
+    position: relative;
+
+}
+.deleteTaskInBtnTrash{
+    width: 20px;
+    height: 30px; 
+    border-radius: 0 0 5px 0;
+    background: rgb(47,153,59);
+    background: linear-gradient(231deg, rgba(47,153,59,1) 24%, rgba(118,161,118,1) 55%);
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    transition: 0.3s;
+    margin-top: 3px;
+}
+.deleteTaskInBtnLine{
+    margin-top: 5px;
+    width: 2px;
+    height: 20px;
+    background-color: white;
 }
 
-.ReturnTaskBtn{
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 15px;
-    font-size: 16px;
-    z-index: 100;
-    animation: changebtnColor 0.7s forwards;
+.deleteTaskInBtnTrashUp{
+    margin-left: -2px;
+    background: rgb(39,45,106);
+    background: linear-gradient(270deg, rgba(39,45,106,1) 9%, rgba(115,125,149,1) 85%);
+    width: 24px;
+    height: 3px;
+    position: absolute;
+    transition: 0.3s;
 }
-@keyframes changebtnColor {
-    0%{
-        background-color: red;
-    }
-    100%{
-        background-color: green;
-    }
+.deleteTaskInBtnTrashUp::before{
+    content: '';
+    background: rgb(39,45,106);
+    background: linear-gradient(270deg, rgba(39,45,106,1) 9%, rgba(115,125,149,1) 85%);
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    border-radius: 3px 0 0 0 ;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translate(7px, -4px);
+}
+
+.deleteTaskBtn:hover .deleteTaskInBtnTrash{
+    transition: 0.3s;
+    transform: rotate(-20deg) translateY(5px);
+}
+
+.deleteTaskBtn:hover .deleteTaskInBtnTrashUp{
+    transition: 0.3s;
+    transform: rotate(20deg) translateY(-5px);
 }
 
 

@@ -4,12 +4,36 @@ import Calendar from './Calendar';
 import TaskPanel from './TaskPanel.jsx';
 
 
-const TodoList = ({standartImgWidth, Appearance, userTodo, updateUserData}) => {
+const TodoList = ({standartImgWidth, Appearance, userTodo}) => {
     const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
     const [chooseDate, setChooseDate] = useState(`${monthNames[new Date().getMonth()]}, ${new Date().getDate()}`);
     const [keyDate, setKeyDate] = useState(`${new Date().getFullYear()}-${monthNames[new Date().getMonth()]}-${new Date().getDate()}`);
 
-    const[taskObject, setTaskObject] = useState(userTodo);
+    const[taskObject, setTaskObject] = useState({});
+
+    const fetchTasks = async () => {
+        const response = await fetch('http://localhost:5000/todoserver', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ user: userTodo }), // Изменяем здесь
+        });
+        const data = await response.json();
+
+        if(response.ok){
+            setTaskObject(data);
+        }
+
+    };
+
+    useEffect(() => {
+        fetchTasks(); // Вызываем fetchTasks при загрузке страницы
+    }, [userTodo]); // Зависимость от username, чтобы перезагружать задачи при его изменении
+
+
+
+
     if(Object.keys(taskObject).indexOf(keyDate) == -1){
         setTaskObject({
             ...taskObject,
@@ -37,11 +61,10 @@ const TodoList = ({standartImgWidth, Appearance, userTodo, updateUserData}) => {
         let actualMontDate = date.split('-');
         setChooseDate(`${actualMontDate[1]}, ${actualMontDate[2]}`);
         setKeyDate(date);
-        updateUserData({'todo': taskObject});
     }
 
     // Добавление новой задачи
-    const setNewTask = (task) => {
+    const setNewTask = async (task) => {
         if (task.length > 0) {
             setTaskObject(prevState => {
                 const currentTasks = prevState[keyDate] || [];
@@ -50,8 +73,8 @@ const TodoList = ({standartImgWidth, Appearance, userTodo, updateUserData}) => {
                     [keyDate]: [...currentTasks, ...task], // Объединяем текущие задачи с новыми
                 };
             });
+    
         }
-        updateUserData({'todo': taskObject});
     };
 
 
@@ -64,7 +87,14 @@ const TodoList = ({standartImgWidth, Appearance, userTodo, updateUserData}) => {
                 />
                 <hr />
                 <div className={classes.todoMain__tasksCont}>
-                    <TaskPanel setNewTask = {setNewTask} taskArray = {taskObject[keyDate]} chooseDate = {chooseDate}/>
+                    <TaskPanel
+                    setNewTask = {setNewTask}
+                    username={userTodo}
+                    taskObj={taskObject}
+                    chooseDate = {chooseDate}
+                    keyDate = {keyDate}
+                    update = {fetchTasks}
+                    />
                 </div>
             </div>
         </div>
