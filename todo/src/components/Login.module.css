@@ -1,13 +1,22 @@
 .login{
-    background-color: rgb(255, 254, 254);
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
 }
 .login__cont{
-    padding-left: 100px;
-    padding-right: 40px;
-    padding-top: 55px;
+    position: relative;
+    background-color: #FFFF;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px 20px;
 }
 .login__title{
     font-size: 32px;

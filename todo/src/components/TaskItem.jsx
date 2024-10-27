@@ -14,7 +14,7 @@ const TaskItem = ({ key, task, openTaskWindow, deleteTask }) => {
         e.stopPropagation();
         setDelFlag(0);
         setLocalTask((prevTask) => ({ ...prevTask, finish: {delFlag} })); // Обновляем task напрямую
-        deleteTask(Localtask); // Передаем идентификатор задачи в функцию удаления
+        deleteTask(task); // Передаем идентификатор задачи в функцию удаления
     }
 
     function handleReturn(e) {
@@ -34,10 +34,16 @@ const TaskItem = ({ key, task, openTaskWindow, deleteTask }) => {
                 <div className={classes.task__text}>
                     {task && task.title ? task.title : 'Задача не найдена'}
                 </div>
-                {delFlag == 1 ?
-                <button className={classes.deleteTaskBtn} onClick={e => {handleDelete(e)}}>Delete</button>    :
-                <button className={classes.ReturnTaskBtn} onClick={e => {handleReturn(e)}}>Return</button>
-                }
+                <button className={classes.deleteTaskBtn} onClick={e => {handleDelete(e)}}>
+                <div className={classes.deleteTaskInBtnTrashUp}>
+                        
+                        </div>
+                    <div className={classes.deleteTaskInBtnTrash}>
+                        <div className={classes.deleteTaskInBtnLine}></div>
+                        <div className={classes.deleteTaskInBtnLine}></div>
+                        <div className={classes.deleteTaskInBtnLine}></div>
+                    </div>
+                </button>
             </div>
             <hr />
         </div>

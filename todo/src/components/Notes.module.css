@@ -80,15 +80,19 @@
     text-align: center;
     margin-bottom: 10px;
     text-overflow: ellipsis;
+    text-transform: capitalize;
     overflow: hidden;
     white-space: nowrap;
     max-width: 150px;
     font-family: "Prata", serif;
+    background-color: #F0f0f3;
+    transition: 0.3s;
   }
   
   .section__task:hover {
-    background-color: #f0f9ff; /* Светло-синий фон при наведении */
-    border: 1px solid #aeeeee; /* Более заметная граница при наведении */
+    background-color: #fff; /* Светло-синий фон при наведении */
+    border: 1px solid orange; /* Более заметная граница при наведении */
+    transition: 0.3s;
   }
   .addSection{
     display: flex;
@@ -137,23 +141,25 @@
     flex-direction: column;
     position: relative;
     font-family: "Prata", serif;
+    
   }
   
   /* Кнопки внутри модального окна */
   .modalContent button {
     margin: 5px 0;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #ffffff;
+    color: black;
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: "Prata", serif;
+    font-weight: 600;
   }
   
   .modalContent button:hover {
-    background-color: #0056b3;
+    background-color: #f0f0f3;
   }
   
 .taskModal__title{
@@ -167,15 +173,22 @@
 }
 
 .descriptionInput {
-    width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
     resize: vertical; /* Позволяет изменять размер только по вертикали */
     overflow: auto; /* Автоматическая прокрутка при переполнении */
     font-family: "Prata", serif;
+    outline: none;
+    border: none;
+
+
+  }
+
+  .descriptionInput:focus{
+    outline: none;
+    border: none;
   }
   
 .section__newTask{
